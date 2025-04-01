@@ -26,8 +26,15 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
 
-    - name: Build and Run Tests
-      run: ./gradlew build test
+    - name: Build Project
+      run: ./gradlew build
+      
+    - name: Run First Test
+      run: ./gradlew test --tests "org.example.MainTest"    
+    
+    - name: Run Second Test
+      run: ./gradlew test --tests "org.example.SECONDTest"
+
 
     - name: Run Main Application
       run: java -jar build/libs/*.jar
